@@ -58,7 +58,7 @@
     {
     ?>
     <center><h3>BILLS</h3></center>
-    <table cellpadding="20">
+    <table cellpadding="2">
        <tr>
            <th>SL NO</th>
            <th>Name</th>
@@ -66,13 +66,32 @@
            <th>Price</th>
            <th>Total<th>
        <tr>
+        <?php
+         $i=1;
+         $grandtotal=0;
+         for($i=1;$i<=4;$i++)
+         {
+            $name="name".$i;
+            $quant="quant".$i;
+            $price= "price".$i;
+            $total=$_POST[$quant]*$_POST[$price];
+            $grandtotal=$grandtotal+$total;
+        
+            ?>
+                
        <tr>
-          <td><?php echo "1"; ?></td>
-          <td><?php echo $_POST["name1"]; ?></td>
-          <td><?php echo "1"; ?></td>
-          <td><?php echo "1"; ?></td>
-          <td><?php echo "1"; ?></td>
+          <td><?php echo $i; ?></td>
+          <td><?php echo $_POST[$name]; ?></td>
+          <td><?php echo $_POST[$quant]; ?></td>
+          <td><?php echo $_POST[$price]; ?></td>
+          <td><?php echo $total; ?></td>
        </tr>
+       <?php } ?>
+       <tr>
+        <td>GRANDTOTAL</td>
+        <td><?php echo $grandtotal."$"; ?></td>
+       </tr>
+       
     </table>
     
     
