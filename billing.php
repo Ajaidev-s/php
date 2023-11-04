@@ -43,10 +43,14 @@
               </tr>
             
           </table>
-         
-                   <input type="submit" value="BILLS" class="form-control" style="background:green;color:white;width:50%;" name="bill">
-                   <input type="submit" value="CLEAR" class="form-control" style="background:red;color:white;width:50%;position:relative;" name="clr">
-             
+         <div class="row">
+                <div class="col-4">
+                   <input type="submit" value="BILLS" class="form-control" style="background:green;color:white;" name="bill">
+                </div>
+                <div class="col-4">
+                   <input type="submit" value="CLEAR" class="form-control" style="background:red;color:white;" name="clr">
+                </div>
+         </div>
          
         <form>
         </div>
