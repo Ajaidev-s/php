@@ -23,6 +23,7 @@ $ar=array(array("id"=>1,"name"=>"Ajai","physic"=>28,"maths"=>38,"python"=>40),
             <center><h3>MACE</h3>
             <form method="post">
                 <table width="50%" cellpadding="10">
+                    
                     <tr>
                         <td>NAME:</td>
                         <td><input type="text" name="name" class="form-control"></td>
@@ -43,20 +44,36 @@ $ar=array(array("id"=>1,"name"=>"Ajai","physic"=>28,"maths"=>38,"python"=>40),
                         foreach($ar as $student)
                              {
                               if($student["id"]==$_POST['id'] && $student['name']==$_POST['name'])
-                                  {
-            ?>
-                                    <table width="40%" cellpadding="10" text-align="center" class="table table-dark table-striped">
+                                  { $total=0;
+                                    $fail=0;
+            ?>                     <CENTER> <h2>FIRST SERIES EXAMINATION RESULT</h2><CENTER>
+                                    <table width="40%" cellpadding="10" text-align="center" class="table">
+                                     <thead class="thead-dark">
+                                             
                                              <tr>
-                                                 <th>key</th>
-                                                 <th>value</th>
+                                                 <th>Subject</th>
+                                                 <th>Mark</th>
+                                                 <th>status</th>
                                                  </tr>
+                                     </thead>
                                     <?php  foreach($student as $key=>$value)
-                                            { ?>
+                                            { 
+                                               if($key!="id" and $key!="name")
+                                               	  {
+                                            ?>
                                                 <tr>
                                                      <td><?php echo $key ?></td>
                                                      <td><?php echo $value ?></td>
+                                                     <td><?php if($value>=30) {echo "pass";} else {echo "fail" ;$fail=1;}?></td>
                                                </tr>
-                                    <?php   } ?> 
+                                    <?php   $total=$total+$value;
+                                                   }
+                                            } ?> 
+                                               <tr>
+                                               	     <td>TOTAL</td>
+                                               	     <td><?php echo $total ?></td>
+                                               	     <td><?php if($fail=1){echo "fail";} else {echo "pass";} ?> </td>
+                                               </tr>
                    
                              <?php break;
                                    }
@@ -71,4 +88,3 @@ $ar=array(array("id"=>1,"name"=>"Ajai","physic"=>28,"maths"=>38,"python"=>40),
         </main>
     </body>
 </html>
-
