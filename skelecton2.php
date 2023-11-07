@@ -8,7 +8,7 @@ $ar=array(array("id"=>1,"name"=>"Ajai","physic"=>28,"maths"=>38,"python"=>40),
 <html>
     <head>
         <title>Mace</title>
-       <style>   body{
+        <style>   body{
                 background-color: rgba(12, 30, 31, 0.058);
             }
             td,th{
@@ -17,10 +17,11 @@ $ar=array(array("id"=>1,"name"=>"Ajai","physic"=>28,"maths"=>38,"python"=>40),
         </style>
     </head>
     <body>
-        <main>
+        
             <center><h3>MACE</h3>
             <form method="post">
                 <table width="50%" cellpadding="10">
+                    
                     <tr>
                         <td>NAME:</td>
                         <td><input type="text" name="name" ></td>
@@ -30,44 +31,55 @@ $ar=array(array("id"=>1,"name"=>"Ajai","physic"=>28,"maths"=>38,"python"=>40),
                         <td><input type="number" name="id" ></td>
                     </tr>
                 </table>
-                <div class="col-2"><input type="submit" name="btn" class="form-control btn btn-dark" value="check" ></div>
+                <input type="submit" name="btn"  value="check" >
             </form>
+            </center>
             
-            
-                
-                
              <?php if (isset($_POST['btn']))
                     { 
                         foreach($ar as $student)
                              {
                               if($student["id"]==$_POST['id'] && $student['name']==$_POST['name'])
-                                  {
-            ?>
+                                  { $total=0;
+                                    $fail=0;
+            ?>                     <CENTER> <h2>FIRST SERIES EXAMINATION RESULT</h2>
                                     <table width="40%" cellpadding="10" text-align="center" >
+                                    
+                                             
                                              <tr>
-                                                 <th>key</th>
-                                                 <th>value</th>
+                                                 <th>Subject</th>
+                                                 <th>Mark</th>
+                                                 <th>status</th>
                                                  </tr>
+                                    
                                     <?php  foreach($student as $key=>$value)
-                                            { ?>
+                                            { 
+                                               if($key!="id" and $key!="name")
+                                               	  {
+                                            ?>
                                                 <tr>
                                                      <td><?php echo $key ?></td>
                                                      <td><?php echo $value ?></td>
+                                                     <td><?php if($value>=30) {echo "pass";} else {echo "fail" ;$fail=1;}?></td>
                                                </tr>
-                                    <?php   } ?> 
+                                    <?php   $total=$total+$value;
+                                                   }
+                                            } ?> 
+                                               <tr>
+                                               	     <td>TOTAL</td>
+                                               	     <td><?php echo $total ?></td>
+                                               	     <td><?php if($fail=1){echo "fail";} else {echo "pass";} ?> </td>
+                                               </tr>
                    
                              <?php break;
                                    }
                              }
                    } ?>        
                                     </table>
-                </center>
+                    </CENTER>
             
 
-                
-                
-           
-        </main>
+              
+   
     </body>
 </html>
-
