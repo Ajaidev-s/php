@@ -5,7 +5,7 @@
   $sname="localhost";
   $uname="root";
   $pass="";
-  $dbname="ecom";
+  $dbname="shop";
   $conn=new mysqli($sname,$uname,$pass,$dbname);
 
  ?>

@@ -5,10 +5,10 @@ if($connect->connect_error)
 	  die("Connection failed".$connect->connect_error);
 	  
 	}
-$crt="create database student";
+$crt="create database shop";
 if($connect->query($crt)==TRUE)
 	{
-	   echo "Database created successfully with name student";
+	   echo "Database created successfully with name shop";
 	   
 	}
 else
