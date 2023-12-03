@@ -60,7 +60,6 @@ if(isset($_POST['btn2']))
     $mname=$_POST['mname'];
     $q3="update  product set p_manufacture='$mname' where p_id='$id'";
     $conn->query($q3);
-    var_dump($q3);
      header("Location:addmanuname.php");
 }
 ?>
