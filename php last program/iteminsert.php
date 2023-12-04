@@ -13,7 +13,7 @@ require("connect.php");
           <table cellpadding="5">
             <?php
               $i=1;
-              for(;$i<=4;$i++)
+              for($i=1;$i<=4;$i++)
               {
                 $name="name".$i;
                 $quant="quant".$i;
@@ -30,7 +30,7 @@ require("connect.php");
                   <td>price</td>
                   <td><input type="number" placeholder="price" name="<?php echo $price ?>" class="form-control"></td>
                   <td>Manufature</td>
-                  <td><input type="date" placeholder="manufature date" name="<?echo $manu ?>" class="form-control"></td>
+                  <td><input type="date" placeholder="manufature date" name="<?php echo $manu ?>" class="form-control"></td>
                   <td>expiry</td>
                   <td><input type="date" placeholder="expiry" name="<?php echo $exp ?>" class="form-control"></td>
                   
@@ -63,7 +63,7 @@ require("connect.php");
             $manu="manu".$i;
             $exp="exp".$i;
             $ins1="insert into product(p_name,p_quant,p_price,p_manu,p_exp) values('$_POST[$name]','$_POST[$quant]','$_POST[$price]','$_POST[$manu]','$_POST[$exp]')";
-            var_dump($ins1);
+            
             $q1=$conn->query($ins1);
            }
         }

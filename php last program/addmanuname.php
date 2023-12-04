@@ -1,7 +1,5 @@
 <?php
 $conn=new mysqli("localhost","root","","shop");
-$q2="alter table product add(p_manufacture varchar(30))";
-$conn->query($q2);
 $q1="select * from product";
 $sel1=$conn->query($q1);
 
